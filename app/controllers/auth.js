@@ -12,7 +12,7 @@ async function login(request, response) {
             "https://hasura.io/jwt/claims" : {
                 "x-hasura-allowed-roles": user.roles,
                 "x-hasura-default-role": user.roles[0],
-                "x-hasura-user-id": user.id
+                "x-hasura-user-id": `${user.id}`
             }
         };
         var privateKey = process.env.JWT_PRIVATE_KEY;
