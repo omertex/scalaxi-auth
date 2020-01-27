@@ -7,12 +7,12 @@ async function login(request, response) {
     if (user) {
         let jwtClaim = {
             id: user.id,
-            userName: user.userName,
-            fullName: `${user.firstName} ${user.lastName}`,
             "https://hasura.io/jwt/claims" : {
                 "x-hasura-allowed-roles": user.roles,
                 "x-hasura-default-role": user.roles[0],
-                "x-hasura-user-id": `${user.id}`
+                "x-hasura-user-id": `${user.id}`,
+                "x-hasura-user-name": `${user.userName}`,
+                "x-hasura-user-fn": `${user.firstName} ${user.lastName}`,
             }
         };
         var privateKey = process.env.JWT_PRIVATE_KEY;
