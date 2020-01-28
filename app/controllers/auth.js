@@ -14,6 +14,7 @@ async function login(request, response) {
                 "x-hasura-user-name": `${user.userName}`,
                 "x-hasura-user-fn": `${user.firstName} ${user.lastName}`,
                 "x-hasura-manager-id": user.managerId ? `${user.managerId}` : "",
+                "x-hasura-manager-fn": user.managerFullName ?? ""
             }
         };
         var privateKey = process.env.JWT_PRIVATE_KEY;
