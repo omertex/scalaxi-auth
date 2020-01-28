@@ -6,7 +6,7 @@ async function getUser(userName, password) {
     });
     if (u) {
         let m = u.managerId ? usersDb.find(e => { return e.id === u.managerId }) : null;
-        u.manageFullName = m ? `${m.firstName} ${m.lastName}` : null;
+        u.managerFullName = m ? `${m.firstName} ${m.lastName}` : null;
         return u;
     }
     return null;
